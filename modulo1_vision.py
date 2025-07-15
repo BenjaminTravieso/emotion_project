@@ -26,11 +26,9 @@ emociones = [
     'con_ira','cansado','sorprendido','riendo'
 ]
 
-# IMPORTANTE: Ajusta estas rutas a la ubicación de tus carpetas 'data/train' y 'data/test'
-# Si tu script está en el mismo directorio que la carpeta 'data', usa 'data/train' y 'data/test'.
-# Si 'data' está en un directorio padre, podrías necesitar '../data/train', o una ruta absoluta.
-base_train = 'data/train' # Asumiendo que la carpeta 'data' está en el mismo directorio que tu script Python
-base_test = 'data/test'   # Asumiendo la carpeta 'data/test' para inferencia
+
+base_train = 'data/train' #  carpeta 'data' está en el mismo directorio que tu script Python
+base_test = 'data/test'   # la carpeta 'data/test' para inferencia
 
 # 2) Detector MTCNN y función de recorte
 detector = MTCNN()
@@ -66,7 +64,7 @@ def detectar_y_recortar_cara(ruta_img,
     return cv2.resize(roi, target_size)
 
 # 3) Preprocesa in-place todas las imágenes con MTCNN
-# Esta función modificará tus imágenes originales. Asegúrate de tener copias de seguridad si es necesario.
+# Esta función modificará tus imágenes originales. 
 def procesar_train():
     logging.info("Iniciando preprocesamiento de imágenes de entrenamiento...")
     for p in personas:
